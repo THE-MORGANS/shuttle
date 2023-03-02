@@ -5,7 +5,7 @@
                          <div class="col-xl-11 col-lg-12 col-md-12 col-sm-12 col-12">
                          
                               <div class="banner_caption text-center mb-5">
-                                   <h1 class="banner_title ft-bold mb-1"><span class="count">Welcome To Mimatt Limited</h1>
+                                   <h1 class="banner_title ft-bold mb-1"><span class="count">Welcome To Mimatt Recruitment Agency</h1>
                                    <p class="fs-md ft-medium">We pledge to deliver qualified, objective advice and importantly some great candidates to help you hire well.</p>
                               </div>
                               
