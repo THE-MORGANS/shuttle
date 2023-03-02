@@ -1,252 +1,247 @@
 
 @extends('layouts.app')
 @section('contents')
-<!--== Start Header Area Wrapper ==-->
-
-<!--== End Header Area Wrapper ==-->
-
-<!-- Start Slider Area Wrapper -->
 @include('frontend.minimal.slider')
-<!-- End Slider Area Wrapper -->
-
-<!-- Start Call to Action Wrapper -->
-{{-- <div class="call-to-action-wrapper bg-brand">
+<!-- ======================= Job List ======================== -->
+<section class="middle">
     <div class="container">
-        <div class="row">
-            <div class="col-12 text-center text-lg-start">
-                <div class="call-action-inner d-lg-flex align-items-center justify-content-between">
-                    <div class="call-action-inner-left mb-sm-22 mb-md-32 text-center text-lg-start">
-                        
-                    </div>
-                    <div class="call-action-inner-right btn-group text-center text-lg-end">
-                        <a href="contact.html" class="btn btn-dark">Contact Us</a>
-                    </div>
+    
+        <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="sec_title position-relative text-center mb-5">
+                    <h6 class="text-muted mb-0">Latest Jobs</h6>
+                    <h2 class="ft-bold">All Latest Jobs</h2>
                 </div>
             </div>
         </div>
-    </div>
-</div> --}}
-<!-- End Call to Action Wrapper -->
-
-<section class="service-area-wrapper mt-84 mt-sm-54">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-9 m-auto">
-                <!-- Start Section Title -->
-                <div class="section-title-wrap layout--2 mb-36">
-                    <h2>Our Services</h2>
-                </div>
-                <!-- End Section Title -->
-            </div>
-        </div>
-
-        <div class="row mtm-30">
-            @forelse ($services as $service)
-            
-            <div class="col-sm-6 col-lg-4">
-          
-                <!-- Start Single Service Item -->
-                <div class="service-item service-item--three white-bg">
-                    <div class="service-item__icon">
-                        <i class=""><img src="{{asset('images/'.$service->image)}}" width="50px"></i>
+        
+        <!-- row -->
+        <div class="row align-items-center">
+        
+            <!-- Single -->
+            @forelse ($pageJobs as $job )
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="job_grid border rounded ">
+                    <div class="position-absolute ab-left"><button type="button" class="p-3 border circle d-flex align-items-center justify-content-center bg-white text-gray"><i class="lni lni-heart-filled position-absolute snackbar-wishlist"></i></button></div>
+                    <div class="position-absolute ab-right"><span class="medium theme-cl theme-bg-light px-2 py-1 rounded">{{$job->job_type}}</span></div>
+                    <div class="job_grid_thumb mb-3 pt-5 px-3">
+                        <a href="job-detail.html" class="d-block text-center m-auto"><img src="assets/img/c-1.png" class="img-fluid" width="70" alt="" /></a>
                     </div>
-
-                    <div class="service-item__info">
-                        <h2><a href="{{route('subpages', encrypt($service->id))}}">{{$service->name}}</a></h2>
-                        <p>{{$service->title}}.</p>
+                    <div class="job_grid_caption text-center pb-5 px-3">
+                        <h6 class="mb-0 lh-1 ft-medium medium"><a href="employer-detail.html" class="text-muted medium">{{$job->company}}</a></h6>
+                        <h4 class="mb-0 ft-medium medium"><a href="job-detail.html" class="text-dark fs-md">{{$job->title}}</a></h4>
+                        <div class="jbl_location"><i class="lni lni-map-marker mr-1"></i><span>{{$job->location}}</span></div>
+                    </div>
+                    <div class="job_grid_footer pb-4 px-3 d-flex align-items-center justify-content-between">
+                        <div class="df-1 text-muted"><i class="lni lni-wallet mr-1"></i>${{$job->salary_range}}.</div>
+                        <div class="df-1 text-muted"><i class="lni lni-timer mr-1"></i>{{$job->created_at->diffForHumans()}}</div>
                     </div>
                 </div>
-                <!-- End Single Service Item -->
-            
             </div>
-
-                
+            
             @empty
                 
             @endforelse
+          
+            
+           
+            
         </div>
-    </div>
-</section>
-
-<!-- End Service Area Wrapper -->
-
-
-<!-- Start News & Testimonial Area -->
-<section class="news-testimonial-area mt-90 mt-sm-60">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7 col-xl-6">
-                <div class="news-content-wrapper mb-md-80 mb-sm-50">
-                    <div class="section-header-wrap">
-                        <!-- Start Section Title -->
-                        <div class="section-title-wrap">
-                            <h2>Our Blogs</h2>
-                        </div>
-                        <!-- End Section Title -->
-
-                        <!-- Start News Slider Arrows -->
-                        <div class="ht-slick-arrows">
-                            <button id="news-prev"><i class="fa fa-angle-left"></i></button>
-                            <button id="news-next"><i class="fa fa-angle-right"></i></button>
-                        </div>
-                        <!-- End News Slider Arrows -->
-                    </div>
-
-                    <!-- Start Recent News Content -->
-                    <div class="news-content-inner mt-30">
-                        <div class="ht-slick-wrapper">
-                            <div class="ht-slick-slider slick-row-30"
-                                 data-slick='{"slidesToShow": 2, "prevArrow":"#news-prev", "nextArrow":"#news-next", "responsive":[{"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
-                                <!-- Start Single News Item -->
-                                
-                                @forelse ($blogs as $blog )
-                               
-                                <div class="news-item hvr-dir-item">
-                                    <figure class="news-item__thumb">
-                                        <a href="#"><img src="{{asset('images/'.$blog->image)}}" alt="Post"/></a>
-                                        <figcaption class="news-item__thumb-hvr hvr-dir">
-                                            <a href="{{asset('images/'.$blog->image)}}" class="btn-zoom btn-popup-img"><i
-                                                    class="fa fa-search-plus"></i></a>
-                                        </figcaption>
-                                    </figure>
-
-                                    <div class="news-item__info">
-                                        <h2><a href="blog-details.html">{{$blog->title}}</a></h2>
-                                        <div class="post-meta">
-                                            <a href="#" class="post-date"><i class="fa fa-clock-o"></i> {{$blog->created_at->format('d/m/y')}}</a>
-                                        </div>
-                                        <p>{!! substr($blog->contents, 0, 200) !!}</p>
-                                        <a href="{{route('blog.details', encrypt($blog->id))}}" class="btn btn-brand">Read More</a>
-                                    </div>
-                                </div>    
-                                @empty
-                                    
-                                @endforelse
-                               
-                                <!-- End Single News Item -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Recent News Content -->
+        <!-- row -->
+        
+        <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="position-relative text-center">
+                    <a href="{{route('pages', encrypt(4))}}" class="btn btn-md theme-bg-light rounded theme-cl hover-theme">Explore More Jobs<i class="lni lni-arrow-right-circle ml-2"></i></a>
                 </div>
             </div>
+        </div>
+        
+    </div>
+</section>
+<!-- ======================= Job List ======================== -->
 
-            <div class="col-lg-5 col-xl-6">
-                <div class="section-title-wrap mb-38">
-                    <h2>Testimonial</h2>
+<!-- ======================= All category ======================== -->
+<section class="space gray">
+    <div class="container">
+    
+        <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="sec_title position-relative text-center mb-5">
+                    <h6 class="text-muted mb-0">Job Industries </h6>
+                    <h2 class="ft-bold">All Job Industries</h2>
                 </div>
+            </div>
+        </div>
+        
+        <!-- row -->
+        <div class="row align-items-center">
+            
+            @forelse ($JobIndustry  as $indstr )
+            <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6">
+                <div class="cats-wrap text-center">
+                    <a href="job-search-v1.html" class="cats-box d-block rounded bg-white px-2 py-4">
+                        <div class="text-center mb-2 mx-auto position-relative d-inline-flex align-items-center justify-content-center p-3 theme-bg-light circle"><i class="lni lni-laptop-phone fs-lg theme-cl"></i></div>
+                        <div class="cats-box-caption">
+                            <h4 class="fs-md mb-0 ft-medium m-catrio">{{$indstr->name}}</h4>
+                            <span class="text-muted"></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            @empty
+                
+            @endforelse
+            
+        </div>
+        <!-- /row -->
+       
+        <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="position-relative text-center">
+                    <a href="{{route('pages', encrypt(4))}}" class="btn btn-md bg-dark rounded text-light hover-theme">Browse All Categories<i class="lni lni-arrow-right-circle ml-2"></i></a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<!-- ======================= All category ======================== -->
 
-                <div class="testimonial-content-wrap">
-                    <div class="ht-slick-slider" data-slick='{"slidesToShow": 1, "autoplay": true, "arrows": false}'>
-                        <!-- Start Single Testimonial Item -->
-                        @forelse ($testimonials as  $testm)
-                        <div class="testimonial-item testimonial-item--3">
-                            <div class="testimonial-item__quote">
-                                <p>{{$testm->content}}</p>
+<!-- ======================= About Start ============================ -->
+<section class="space">
+    <div class="container">
+        
+        <div class="row align-items-center justify-content-between">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                <div class="m-spaced">
+                    <div class="position-relative">
+                        <div class="mb-1"><span class="theme-bg-light theme-cl px-2 py-1 rounded">About Us</span></div>
+                       
+                        <p class="mb-4">{{$settings->about}}</p>
+                    </div>
+                    <div class="position-relative row">
+                        <div class="col-lg-4 col-md-4 col-4">
+                            <h3 class="ft-bold theme-cl mb-0">10k+</h3>
+                            <p class="ft-medium">Active Jobs</p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-4">
+                            <h3 class="ft-bold theme-cl mb-0">12k+</h3>
+                            <p class="ft-medium">Resumes</p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-4">
+                            <h3 class="ft-bold theme-cl mb-0">07k+</h3>
+                            <p class="ft-medium">Employers</p>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-12 mt-3">
+                            <a href="javascript:void(0);" class="btn btn-md theme-bg-light rounded theme-cl hover-theme">See Details<i class="lni lni-arrow-right-circle ml-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
+                <div class="position-relative">
+                    <img src="assets/img/bn-5.png" class="img-fluid" alt="" />
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<!-- ======================= About Start ============================ -->
+
+
+<!-- ======================= Blog Start ============================ -->
+<section class="space min gray">
+    <div class="container">
+        
+        <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="sec_title position-relative text-center mb-4">
+                    <h6 class="text-muted mb-0">Latest Blogs</h6>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            
+            <!-- Single Item -->
+            @forelse ($blogs as $blog )
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                <div class="blg_grid_box">
+                    <div class="blg_grid_thumb">
+                        <a href="blog-detail.html"><img src="{{asset('images/'.$blog->image)}}" class="img-fluid" alt=""></a>
+                    </div>
+                    <div class="blg_grid_caption">
+                        <div class="blg_title"><h4><a href="blog-detail.html">{{$blog->title}}</a></h4></div>
+                        <div class="blg_desc"><p>{!!substr($blog->contents,0,200)!!}</p></div>
+                    </div>
+                    <div class="crs_grid_foot">
+                        <div class="crs_flex d-flex align-items-center justify-content-between br-top px-3 py-2">
+                            <div class="crs_fl_first">
+
                             </div>
-                            <div class="testimonial-item__client">
-                                <figure class="testimonial-item__client__thumb">
-                                    <img src="{{asset('images/'.$testm->image)}}" alt=""/>
-                                </figure>
-                                <div class="testimonial-item__client__info">
-                                    <h4>{{$testm->name}}</h4>
+                            <div class="crs_fl_last">
+                                <div class="foot_list_info">
+                                    <ul>
+                                        <li><div class="elsio_ic"><i class="fa fa-eye text-success"></i></div><div class="elsio_tx">{{$blog->views}} Views</div></li>
+                                        <li><div class="elsio_ic"><i class="fa fa-clock text-warning"></i></div><div class="elsio_tx">{{$blog->created_at->format('d/m/yy')}}</div></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
-                        @empty
-                            
-                        @endforelse
                     </div>
                 </div>
-
             </div>
+            @empty  
+            @endforelse
+          
         </div>
+        
     </div>
 </section>
-<!-- End View & Testimonial Area -->
+<!-- ======================= Blog Start ============================ -->
 
-<!-- Start Our Client Area -->
-<section class="our-client-wrapper mt-90 mt-sm-60">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-header-wrap mb-44 mb-sm-30">
-                    <!-- Start Section Title -->
-                    <div class="section-title-wrap">
-                        <h2>Our Clients</h2>
-                    </div>
-                    <!-- End Section Title -->
 
-                    <!-- Start News Slider Arrows -->
-                    <div class="ht-slick-arrows ht-slick-arrows--two">
-                        <button id="client-prev"><i class="fa fa-angle-left"></i></button>
-                        <button id="client-next"><i class="fa fa-angle-right"></i></button>
-                    </div>
-                    <!-- End News Slider Arrows -->
+<!-- ========================== Download App Section =============================== -->
+
+<!-- ======================= Newsletter Start ============================ -->
+<section class="space bg-cover" style="background:#03343b url(assets/img/landing-bg.png) no-repeat;">
+    <div class="container py-5">
+        
+        <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="sec_title position-relative text-center mb-5">
+                    <h6 class="text-light mb-0">Subscribr Now</h6>
+                    <h2 class="ft-bold text-light">Get All Job Notification</h2>
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-12">
-                <!-- Start Our Clients Content -->
-                <div class="our-client-content">
-                    <div class="ht-slick-slider slick-row-20"
-                         data-slick='{"slidesToShow": 6, "autoplay": true, "prevArrow":"#client-prev", "nextArrow":"#client-next", "responsive":[{"breakpoint": 481,"settings":{"slidesToShow": 2}}, {"breakpoint": 801,"settings":{"slidesToShow": 3}}, {"breakpoint": 992,"settings":{"slidesToShow": 4}}]}'>
-                        <!-- Start Single Client Logo Item -->
-                        <div class="client-item">
-                            <a href="#"><img src="assets/img/brand-logo/01.png" alt="Brand Logo"/></a>
+        
+        <div class="row align-items-center justify-content-center">
+            <div class="col-xl-7 col-lg-10 col-md-12 col-sm-12 col-12">
+                <form class="bg-white rounded p-1">
+                    <div class="row no-gutters">
+                        <div class="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-8">
+                            <div class="form-group mb-0 position-relative">
+                                <input type="text" class="form-control lg left-ico" placeholder="Enter Your Email Address">
+                                <i class="bnc-ico lni lni-envelope"></i>
+                            </div>
                         </div>
-                        <!-- End Single Client Logo Item -->
-
-                        <!-- Start Single Client Logo Item -->
-                        <div class="client-item">
-                            <a href="#"><img src="assets/img/brand-logo/02.png" alt="Brand Logo"/></a>
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-4">
+                            <div class="form-group mb-0 position-relative">
+                                <button class="btn full-width custom-height-lg theme-bg text-light fs-md" type="button">Subscribe</button>
+                            </div>
                         </div>
-                        <!-- End Single Client Logo Item -->
-
-                        <!-- Start Single Client Logo Item -->
-                        <div class="client-item">
-                            <a href="#"><img src="assets/img/brand-logo/03.png" alt="Brand Logo"/></a>
-                        </div>
-                        <!-- End Single Client Logo Item -->
-
-                        <!-- Start Single Client Logo Item -->
-                        <div class="client-item">
-                            <a href="#"><img src="assets/img/brand-logo/04.png" alt="Brand Logo"/></a>
-                        </div>
-                        <!-- End Single Client Logo Item -->
-
-                        <!-- Start Single Client Logo Item -->
-                        <div class="client-item">
-                            <a href="#"><img src="assets/img/brand-logo/05.png" alt="Brand Logo"/></a>
-                        </div>
-                        <!-- End Single Client Logo Item -->
-
-                        <!-- Start Single Client Logo Item -->
-                        <div class="client-item">
-                            <a href="#"><img src="assets/img/brand-logo/06.png" alt="Brand Logo"/></a>
-                        </div>
-                        <!-- End Single Client Logo Item -->
-
-                        <!-- Start Single Client Logo Item -->
-                        <div class="client-item">
-                            <a href="#"><img src="assets/img/brand-logo/01.png" alt="Brand Logo"/></a>
-                        </div>
-                        <!-- End Single Client Logo Item -->
-
-                        <!-- Start Single Client Logo Item -->
-                        <div class="client-item">
-                            <a href="#"><img src="assets/img/brand-logo/02.png" alt="Brand Logo"/></a>
-                        </div>
-                        <!-- End Single Client Logo Item -->
                     </div>
-                </div>
-                <!-- End Our Clients Content -->
+                </form>
             </div>
         </div>
+        
     </div>
 </section>
-<!-- End Our Client Area -->
+<!-- ======================= Newsletter Start ============================ -->
+
 
 @endsection

@@ -1,68 +1,81 @@
 @extends('layouts.app')
-@section('contents')
-<div class="page-header-area">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 col-lg-4">
-                <div class="page-header-title text-center text-md-start">
-                    <h1> {{$breadcrums }}</h1>
-                </div>
-            </div>
+@section('contents')<div class="clearfix"></div>
 
-            <div class="col-md-6 col-lg-8">
-                <nav class="page-header-breadcrumb text-center text-md-end">
-                    <ul class="breadcrumb">
-                        <li><a href="{{route('index')}}">Home</a></li>
-                        <li class="active"><a href="#">{{$breadcrums }}</a></li>
-                    </ul>
+<div class="gray py-3">
+    <div class="container">
+        <div class="row">
+            <div class="colxl-12 col-lg-12 col-md-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{$breadcrums }}</li>
+                    </ol>
                 </nav>
             </div>
         </div>
     </div>
 </div>
-<div class="page-content-wrap pt-90 pt-sm-60 pb-90 pb-sm-60 mb-xl-30">
-    <div class="service-details-page-wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3  order-lg-0">
-                    <aside class="sidebar-wrapper">
-                        <!-- Start Single Sidebar -->
-                        <div class="sidebar-item">
-                            <h3 class="sidebar-title">{{$pages->menu?$pages->Menu->name:$pages->subMenu->Menu->name}}</h3>
-                            <div class="sidebar-body">
-                                <ul class="sidebar-list">
-                                    @foreach ($sidebar as $menu )
-                                    <li><a href="{{route('subpages', encrypt($menu->id))}}">{{$menu->name}}</a></li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    </aside>
-                    
+
+<section class="middle">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+        
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                <div class="abt_caption">
+                    <h2 class="ft-medium mb-4">{{$pages->title}}</h2>
+                    <p class="mb-4">{!! $pages->contents !!}.</p>
+                  
                 </div>
+            </div>
+            
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                <div class="abt_caption">
+                    <img src="{{asset('images/'.$pages->metas)}}" class="img-fluid rounded" alt="" />
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<!-- ======================= About Us End ======================== -->
 
-                <div class="col-lg-9 order-0">
-                    <div class="service-details-content">
-                        
-                            <div class="project-details-thumb ht-slick-slider" data-slick='{"arrows": false, "dots": true}'>
-                              
-                                <figure class="project-thumb-item">
-                                    <img src="{{asset('images/'.$pages->metas)}}" alt="Project"/>
-                                </figure>
-                            </div>
-                            <div class="service-details-info">
-                            <h2>{{$pages->title}}</h2>
-                            <p>{!! $pages->contents !!}</p>
+<!-- ======================= About Us End ======================== -->
 
-                            
-                        </div>
-
-                    </div>
-
+<!-- ======================= Newsletter Start ============================ -->
+<section class="space bg-cover" style="background:#03343b url(assets/img/landing-bg.png) no-repeat;">
+    <div class="container py-5">
+        
+        <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="sec_title position-relative text-center mb-5">
+                    <h6 class="text-light mb-0">Subscribr Now</h6>
+                    <h2 class="ft-bold text-light">Get All New Job Notification</h2>
                 </div>
             </div>
         </div>
+        
+        <div class="row align-items-center justify-content-center">
+            <div class="col-xl-7 col-lg-10 col-md-12 col-sm-12 col-12">
+                <form class="bg-white rounded p-1">
+                    <div class="row no-gutters">
+                        <div class="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-8">
+                            <div class="form-group mb-0 position-relative">
+                                <input type="text" class="form-control lg left-ico" placeholder="Enter Your Email Address">
+                                <i class="bnc-ico lni lni-envelope"></i>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-4">
+                            <div class="form-group mb-0 position-relative">
+                                <button class="btn full-width custom-height-lg theme-bg text-light fs-md" type="button">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
     </div>
-</div>
+</section>
 
 @endsection

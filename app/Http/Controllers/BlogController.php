@@ -31,6 +31,7 @@ class BlogController extends Controller
         //dd($request->all());
 
         $data = [];
+        $data['status'] = 1;
        try{ 
         if($request->contents){
             $data['contents'] = $request->contents;

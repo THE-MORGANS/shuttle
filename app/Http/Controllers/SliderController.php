@@ -23,7 +23,7 @@ class SliderController extends Controller
 
     public function StoreSlider(Request $request){
         $request->validate([
-            'images' => 'required',
+            'image' => 'required',
             'content' => 'required',
             'title' => 'required',
         ]);
@@ -33,19 +33,18 @@ class SliderController extends Controller
         if($request->file('image')){
             $image = $request->file('image');
             $ext = $image->getClientOriginalExtension();
-            $name = pathinfo($image, PATHINFO_FILENAME);
-            $fileName = $name.time().'.'.$ext;
-            $image->move('image',$fileName);
-            $filename[] = $fileName;
-    }else{ 
-        $file = "";
+            $fileName = time().'.'.$ext;
+            $image->move('images',$fileName);
+        
     }
         $data = [
-            'image' =>  $file,
+            'image' =>   $fileName,
             'content' => $request->content,
             'title' =>  $request->title,
+            'status' => 1
         ];
 
+      //  dd($data);
         Slider::create($data);
         \Session::flash('alert', 'success');
         \Session::flash('alert', 'Slider Added Successfully');
@@ -73,7 +72,8 @@ class SliderController extends Controller
             'title' =>  $request->title,
         ];
 
-        Slider::where('id', decrypt($id))->fill($data)->save();
+        $sl = Slider::where('id', decrypt($id))->first();
+         $sl->fill($data)->save();
         \Session::flash('alert', 'success');
         \Session::flash('alert', 'Slider Updated Successfully');
     }

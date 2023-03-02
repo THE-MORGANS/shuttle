@@ -1,139 +1,89 @@
 @extends('layouts.app')
 @section('contents')
 
-
-<div class="page-header-area">
+<div class="clearfix"></div>
+<div class="bg-title py-5" data-overlay="0">
+    <div class="ht-30"></div>
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 col-lg-5">
-                <div class="page-header-title text-center text-md-start">
-                    <h1>FAQ</h1>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-7">
-                <nav class="page-header-breadcrumb text-center text-md-end">
-                    <ul class="breadcrumb">
-                        <li><a href="">Home</a></li>
-                        <li class="active"><a href="">FAQ</a></li>
-                    </ul>
+        <div class="row">
+            <div class="colxl-12 col-lg-12 col-md-12">
+                <h1 class="ft-medium">FAQ</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" class="text-light">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#" class="text-light">FAQ</a></li>
+                    </ol>
                 </nav>
             </div>
         </div>
     </div>
+    <div class="ht-30"></div>
 </div>
-<!-- End Page Header Area -->
-
-
-<section class="news-why-choose-area mt-90 mt-sm-60">
+<section class="middle">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-11 col-xl-11">
-                <!-- Start Why Choose Content -->
-                <div class="why-choose-content-wrap mt-md-84 mt-sm-52">
-                    <div class="section-title-wrap mb-34">
-                        <h2 class="mb-2">Great Jasmine FAQs</h2>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <div id="accordion" class="accordion">
+                @forelse ($faqs as $faq)
+                <div class="card">
+                    <div class="card-header" id="h1">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#ord{{$faq->id}}" aria-expanded="true" aria-controls="ord{{$faq->id}}">
+                            {{$faq->title}}
+                        </button>
+                      </h5>
                     </div>
 
-                    <div class="why-choose-content-inner">
-                        <div class="accordion" id="chooseAccordion">
-                            <!-- Start Why choose Us Item -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Supersonic demo installation
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#chooseAccordion">
-                                    <div class="accordion-body">
-                                        <p>No more time wasting in data import. We rocket its speed by improving the
-                                            progress: all the pictures will be downloaded first, then copied to
-                                            content by folders, and finally other data. This strikingly reduces your
-                                            waiting time.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Why choose Us Item -->
-
-                            <!-- Start Why choose Us Item -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Effortless customization
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#chooseAccordion">
-                                    <div class="accordion-body">
-                                        <p>There are many people run into trouble when customize their website due
-                                            to the complexity of their template. This absolutely will not happen
-                                            with Duncan as we created it with a mindset of ease your process.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Why choose Us Item -->
-
-                            <!-- Start Why choose Us Item -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingThree">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Powerful Shortcodes
-                                    </button>
-                                </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#chooseAccordion">
-                                    <div class="accordion-body">
-                                        <p>In establishing process, there may be some complicated tasks. But no
-                                            worry as all of those have been solved by Duncan’s effective
-                                            shortcodes system, helping you save time and create your site
-                                            quickly.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Why choose Us Item -->
-
-                            <!-- Start Why choose Us Item -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingFour">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                        Dedicated customer support
-                                    </button>
-                                </h2>
-                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#chooseAccordion">
-                                    <div class="accordion-body">
-                                        <p>We focus on our customers and listen to all of their problems which will
-                                            be quickly handled by our experienced developers. You will never have
-                                            any difficulty building your site as you got us. Save time worrying and
-                                            focus on your business.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Why choose Us Item -->
-
-                            <!-- Start Why choose Us Item -->
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingFive">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                        Well Documented Code
-                                    </button>
-                                </h2>
-                                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#chooseAccordion">
-                                    <div class="accordion-body">
-                                        <p>We focus on our customers and listen to all of their problems which will
-                                            be quickly handled by our experienced developers. You will never have
-                                            any difficulty building your site as you got us. Save time worrying and
-                                            focus on your business.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Why choose Us Item -->
-                        </div>
+                    <div id="ord{{$faq->id}}" class="collapse" aria-labelledby="h1" data-parent="#accordion">
+                      <div class="card-body">
+                        <p>{!! $faq->content !!} </p>
+                      </div>
                     </div>
                 </div>
-                <!-- End Why Choose Content -->
+                @empty
+                @endforelse
+              
+                
             </div>
         </div>
+
     </div>
 </section>
+<!-- ======================= Docs End ======================== -->
 
-<div class="p-5"></div>
+<!-- ======================= Newsletter Start ============================ -->
+<section class="space bg-cover" style="background:#03343b url(assets/img/landing-bg.png) no-repeat;">
+    <div class="container py-5">
+        
+        <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="sec_title position-relative text-center mb-5">
+                    <h6 class="text-light mb-0">Subscribr Now</h6>
+                    <h2 class="ft-bold text-light">Get All New Job Notification</h2>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row align-items-center justify-content-center">
+            <div class="col-xl-7 col-lg-10 col-md-12 col-sm-12 col-12">
+                <form class="bg-white rounded p-1">
+                    <div class="row no-gutters">
+                        <div class="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-8">
+                            <div class="form-group mb-0 position-relative">
+                                <input type="text" class="form-control lg left-ico" placeholder="Enter Your Email Address">
+                                <i class="bnc-ico lni lni-envelope"></i>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-4">
+                            <div class="form-group mb-0 position-relative">
+                                <button class="btn full-width custom-height-lg theme-bg text-light fs-md" type="button">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</section>iv>
 
 @endsection

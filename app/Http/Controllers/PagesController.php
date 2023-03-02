@@ -8,6 +8,7 @@ use App\Models\Menu;
 use App\Models\SubMenu;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Page;
+use App\Models\Faq;
 use App\Models\ClientJob;
 use App\Mail\ContactUs;
 use App\Models\Industry;
@@ -29,10 +30,17 @@ class PagesController extends Controller
         }
 
         if($menuId->slug == "FAQ"){
-            return view('frontend.faq');
+            return view('frontend.faq', [
+                'faqs' => Faq::latest()->get()
+            ]);
         }
         if($menuId->slug == 'contact'){
             return view('frontend.contact', [
+                'key' => rand(999,1111).substr(base64_encode('sdsjkdsdsd'), 0, 10),
+            ]);
+        }
+        if($menuId->slug == 'About'){
+            return view('frontend.abouts', [
                 'key' => rand(999,1111).substr(base64_encode('sdsjkdsdsd'), 0, 10),
             ]);
         }
@@ -76,7 +84,7 @@ class PagesController extends Controller
         $id = decrypt($id);
         return view('frontend.blog_details', [
             'blogs' => Blog::where('id', $id)->first(),
-            'popular' => Blog::where('views', '>', '10')->get(),
+            'popular' => Blog::get(),
         ]);
     }
 

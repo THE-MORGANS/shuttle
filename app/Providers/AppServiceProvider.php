@@ -5,6 +5,8 @@ namespace App\Providers;
 use App\Models\Menu;
 use App\Models\Setting;
 use App\Models\AdminNotify;
+use App\Models\Industry;
+use App\Models\SubMenu;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -35,5 +37,8 @@ class AppServiceProvider extends ServiceProvider
         });
        view::share('unread_notify', AdminNotify::where('status', 0)->latest()->take(10)->get());
        view::share('read_notify', AdminNotify::where('status', 1)->latest()->take(2)->get());
+       view::share('JobIndustries', Industry::latest()->get());
+       view::share('JobIndus', Industry::take(5)->latest()->get());
+       view::share('Servicesx', SubMenu::where('menu_id', 2)->latest()->get());
     }
 }

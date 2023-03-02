@@ -1,106 +1,121 @@
+
 @extends('layouts.app')
 @section('contents')
-
-<div class="page-header-area">
+<section class="page-title gray">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 col-lg-4">
-                <div class="page-header-title text-center text-md-start">
-                    <h1>Blog Details</h1>
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                
+                <div class="breadcrumbs-wrap">
+                    <h2 class="mb-0 ft-medium">{{$blogs->title}}</h1>
+                    <nav class="transparent">
+                        <ol class="breadcrumb p-0">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active theme-cl" aria-current="page">Blog Detail</li>
+                        </ol>
+                    </nav>
                 </div>
-            </div>
-
-            <div class="col-md-6 col-lg-8">
-                <nav class="page-header-breadcrumb text-center text-md-end">
-                    <ul class="breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li class="active"><a href="index.html">Blog Details</a></li>
-                    </ul>
-                </nav>
+                
             </div>
         </div>
     </div>
-</div>
-<!-- End Page Header Area -->
+</section>
+<!-- ============================ Page Title End ================================== -->
 
-<!-- Start Page Content Wrapper -->
-<div class="page-content-wrap pt-90 pt-sm-60 pb-90 pb-sm-60 mb-xl-30">
-    <div class="blog-details-page-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 order-1 order-lg-0">
-                    <div class="sidebar-area mt-md-58 mt-sm-58">
-                        <aside class="sidebar-wrapper">
-                           
+<!-- ============================ Blog Detail Start ================================== -->
+<section>
 
-                            <!-- Start Single Sidebar -->
-                            <div class="sidebar-item">
-                                <h3 class="sidebar-title">Recent News</h3>
-                                <div class="sidebar-body">
-                                    @forelse($popular as $post)
-                                    <div class="recent-news-item">
-                                        <figure class="recent-news-item__thumb">
-                                            <a href="{{route('blog.details', encrypt($post->id))}}"><img src="{{asset('assets/img/news/post-01.jpg')}}"
-                                                                             alt="Recent News"/></a>
-                                        </figure>
-
-                                        <div class="recent-news-item__info">
-                                            <h3><a href="{{route('blog.details', encrypt($post->id))}}">{{$post->title}}</a></h3>
-                                            <div class="news-meta">
-                                                <span class="post-date"><i
-                                                        class="fa fa-clock-o"></i>{{$post->created_at->format('d/m/y')}}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @empty 
-
-                                    @endforelse
-                                </div>
-                            </div>
-                            <!-- End Single Sidebar -->
-
-                            <!-- Start Single Sidebar -->
+    <div class="container">
+    
+        <!-- row Start -->
+        <div class="row">
+        
+            <!-- Blog Detail -->
+            <div class="col-lg-8 col-md-12 col-sm-12 col-12">
+                <div class="article_detail_wrapss single_article_wrap format-standard">
+                    <div class="article_body_wrap">
+                    
+                        <div class="article_featured_image">
+                            <img class="img-fluid" src="assets/img/b-6.jpg" alt="">
+                        </div>
+                        
+                        <div class="article_top_info">
+                            
+                        </div>
+                        <h2 class="post-title">{{$blogs->title}}.</h2>
+                        <p>{!! $blogs->contents !!}</p>
                          
-                            <!-- End Single Sidebar -->
-                        </aside>
-                    </div>
+                      </div>
                 </div>
+            </div>
+            
+            <!-- Single blog Grid -->
+            <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+                
+                <div class="single_widgets widget_thumb_post">
+                    <h4 class="title">Recent Posts</h4>
+                    <ul>
+                        @forelse($popular as $post)
+                        <li>
+                            <span class="left">
+                                <img src="{{asset('images/'.$post->image)}}" alt="" class="">
+                            </span>
+                            <span class="right">
+                                <a class="feed-title" href="{{route('blog.details', encrypt($post->id))}}">{{$post->title}}</a> 
+                                <span class="post-date"><i class="ti-calendar"></i>{{$post->created_at->format('d/m/y')}}</span>
+                            </span>
+                        </li>
+                        @empty 
 
-                <div class="col-lg-9 order-0">
-                    <article class="blog-details-content">
-                        <figure class="blog-thumb">
-                            <img src="{{asset('/assets/img/news/post-big-02.jpg')}}" alt="Blog"/>
-                        </figure>
+                        @endforelse
+                    </ul>
+                </div>
+                
+                
+                
+            </div>
+            
+        </div>
+        <!-- /row -->					
+        
+    </div>
+            
+</section>
+<!-- ============================ Blog Detail End ================================== -->
 
-                        <div class="blog-info">
-                            <h2>{{$blogs->title}}</h2>
-                            <div class="blog-meta">
-                                <a href="blog-details.html" class="post-date"><i class="fa fa-clock-o"></i>
-                                   {{$blogs->created_at->format('d/M/Y')}}</a>
-                              
-                              
-                            </div>
-
-                            <p>{!! $blogs->contents !!}</p>
-                        </div>
-
-                        <div class="blog-share">
-                            <h4><i class="fa fa-share-alt"></i> Share:</h4>
-                            <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
-                            <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
-                            <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
-                            <a target="_blank" href="#"><i class="fa fa-reddit"></i></a>
-                            <a target="_blank" href="#"><i class="fa fa-digg"></i></a>
-                        </div>
-                    </article>
-
-                    <!-- Start Comment Area Wrapper -->
-                   
+<!-- ======================= Newsletter Start ============================ -->
+<section class="space bg-cover" style="background:#03343b url(assets/img/landing-bg.png) no-repeat;">
+    <div class="container py-5">
+        
+        <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="sec_title position-relative text-center mb-5">
+                    <h6 class="text-light mb-0">Subscribr Now</h6>
+                    <h2 class="ft-bold text-light">Get All New Job Notification</h2>
                 </div>
             </div>
         </div>
+        
+        <div class="row align-items-center justify-content-center">
+            <div class="col-xl-7 col-lg-10 col-md-12 col-sm-12 col-12">
+                <form class="bg-white rounded p-1">
+                    <div class="row no-gutters">
+                        <div class="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-8">
+                            <div class="form-group mb-0 position-relative">
+                                <input type="text" class="form-control lg left-ico" placeholder="Enter Your Email Address">
+                                <i class="bnc-ico lni lni-envelope"></i>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-4">
+                            <div class="form-group mb-0 position-relative">
+                                <button class="btn full-width custom-height-lg theme-bg text-light fs-md" type="button">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
     </div>
-</div>
-
+</section>
 @endsection

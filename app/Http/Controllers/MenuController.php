@@ -36,9 +36,10 @@ class MenuController extends Controller
             return back()->withInput();
         }
 
+        $cc = explode(' ',$request->name);
         $menu = Menu::create([
             'name' => $request->name,
-            'slug' => trim($request->name),
+            'slug' => $cc[0],
             'status' => 1,
         ]);
 

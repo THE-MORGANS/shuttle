@@ -1,107 +1,139 @@
 @extends('layouts.app')
 @section('contents')
+<div class="clearfix"></div>
 
-<div class="page-header-area">
+<div class="bg-title py-5" data-overlay="0">
+    <div class="ht-30"></div>
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 col-lg-4">
-                <div class="page-header-title text-center text-md-start">
-                    <h1>Contact Us</h1>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-8">
-                <nav class="page-header-breadcrumb text-center text-md-end">
-                    <ul class="breadcrumb">
-                        <li><a href="">Home</a></li>
-                        <li class="active"><a href="">Contact Us</a></li>
-                    </ul>
+        <div class="row">
+            <div class="colxl-12 col-lg-12 col-md-12">
+                <h1 class="ft-medium">Contact Us</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" class="text-light">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#" class="text-light">Contact Us</a></li>
+                    </ol>
                 </nav>
             </div>
         </div>
     </div>
+    <div class="ht-30"></div>
 </div>
-<!-- End Page Header Area -->
+<!-- ======================= Top Breadcrubms ======================== -->
 
-<!-- Start Page Content Wrapper -->
-<div class="page-content-wrap pt-90 pt-sm-60 pb-90 pb-sm-60 mb-xl-30">
-    <div class="contact-page-area-wrapper">
-        <div class="container">
-            <div class="row">
-                
-
-                <div class="col-lg-6 order-2 order-lg-2">
-                    <div class="contact-map mt-md-50 mt-sm-30">
-                        <div id="map_content" class="h-100" data-lat="38.907192" data-lng="-77.036873"
-                             data-zoom="12"></div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-6 order-1 order-lg-1">
-                    <div class="section-title-wrap mb-24 mtm-8">
-                        <h2>Get In Touch</h2>
-                    </div>
-                    <div class="office-info">
-                        <p><i class="fa fa-map-marker"></i> {{$settings->address}}</p>
-                        <p><i class="fa fa-phone"></i> {{$settings->site_phone}}</p>
-                        <p><i class="fa fa-envelope-o"></i> {{$settings->site_email}}</p>
-                        <p><i class="fa fa-clock-o"></i> {{$settings->opening_hours}}</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="contact-page-form-area mt-90 mt-sm-60">
-                        <div class="section-title-wrap mb-36 mb-sm-26">
-                            <h2>Get In Touch</h2>
-                        </div>
-
-                        <div class="contact-form">
-                            <form id="contact-form" action="{{route('contact-email')}}" method="post">
-                                @csrf
-                                <div class="contact-form-content">
-                                    <div class="row mb-20">
-                                        <div class="col-lg-4">
-                                            <div class="form-input-item">
-                                                <input type="text" name="name" placeholder="Your Name*" required/>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-4">
-                                            <div class="form-input-item">
-                                                <input type="text" name="phone" placeholder="Your Phone"/>
-                                            </div>
-                                        </div>
-                                        <input type="hidden" name="key" value="{{$key}}"> 
-
-                                        <div class="col-lg-4">
-                                            <div class="form-input-item">
-                                                <input type="email" name="email" placeholder="Your Email*"
-                                                       required/>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-input-item">
-                                        <textarea name="message" id="con_message" cols="30" rows="8"
-                                                  placeholder="Write your Message*" required></textarea>
-                                    </div>
-
-                                    <div class="form-input-item">
-                                        <button type="submit" class="btn btn-brand">Send Message</button>
-                                    </div>
-                                </div>
-
-                                <!-- Show Message Notification -->
-                                <div class="form-message mt-1"></div>
-                            </form>
-                        </div>
-                    </div>
+<!-- ======================= Contact Page Detail ======================== -->
+<section class="middle">
+    <div class="container">
+    
+        <div class="row justify-content-center mb-5">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="sec_title position-relative text-center">
+                    <h2 class="off_title">Contact Us</h2>
                 </div>
             </div>
         </div>
+        
+        <div class="row align-items-start justify-content-between">
+        
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                <div class="card-wrap-body mb-4 gray rounded p-3">
+                    <h4 class="ft-medium mb-3 theme-cl">Address</h4>
+                    <p>{{$settings->address}}</p>
+                </div>
+                
+                <div class="card-wrap-body mb-3 gray rounded p-3">
+                    <h4 class="ft-medium mb-3 theme-cl">Phone Numbers</h4>
+                    <h6 class="ft-medium mb-1">Customer Care:</h6>
+                    <p class="mb-2">{{$settings->site_phone}}</p>
+                  
+                </div>
+                
+                <div class="card-wrap-body mb-3 gray rounded p-3">
+                    <h4 class="ft-medium mb-3 theme-cl">Drop A Mail</h4>
+                    <p class="lh-1 text-dark">{{$settings->site_email}}</p>
+                </div>
+            </div>
+            
+            <div class="col-xl-7 col-lg-8 col-md-12 col-sm-12">
+                <form id="contact-form" action="{{route('contact-email')}}" method="post" class="row">
+                    @csrf
+                        
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <label class="small text-dark ft-medium">Your Name *</label>
+                            <input type="text" value="{{old('email')}}"  name="name" class="form-control" value="Your Name" required>
+                        </div>
+                    </div>
+                    <input type="hidden" name="key" value="{{$key}}"> 
+                    
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <label class="small text-dark ft-medium">Your Email *</label>
+                            <input type="text" value="{{old('email')}}" name="email" class="form-control" value="Your Email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <label class="small text-dark ft-medium">Phone Number </label>
+                            <input type="text" value="{{old('phone')}}" name="phone" class="form-control" value="Type Your Subject" required>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <label class="small text-dark ft-medium">Message</label>
+                            <textarea name="message" class="form-control ht-80">{{old('message')}}</textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-dark">Send Message</button>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+            
+        </div>
     </div>
-</div>
+</section>
+<!-- ======================= Contact Page End ======================== -->
 
+<!-- ======================= Newsletter Start ============================ -->
+<section class="space bg-cover" style="background:#03343b url(assets/img/landing-bg.png) no-repeat;">
+    <div class="container py-5">
+        
+        <div class="row justify-content-center">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="sec_title position-relative text-center mb-5">
+                    <h6 class="text-light mb-0">Subscribr Now</h6>
+                    <h2 class="ft-bold text-light">Get All New Job Notification</h2>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row align-items-center justify-content-center">
+            <div class="col-xl-7 col-lg-10 col-md-12 col-sm-12 col-12">
+                <form class="bg-white rounded p-1">
+                    <div class="row no-gutters">
+                        <div class="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-8">
+                            <div class="form-group mb-0 position-relative">
+                                <input type="text" class="form-control lg left-ico" placeholder="Enter Your Email Address">
+                                <i class="bnc-ico lni lni-envelope"></i>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-4">
+                            <div class="form-group mb-0 position-relative">
+                                <button class="btn full-width custom-height-lg theme-bg text-light fs-md" type="button">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</section>
 @endsection

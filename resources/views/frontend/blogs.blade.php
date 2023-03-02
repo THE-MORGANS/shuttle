@@ -1,128 +1,92 @@
 @extends('layouts.app')
 @section('contents')
-
-<div class="page-header-area">
+<div class="clearfix"></div>
+<div class="bg-title py-5" data-overlay="0">
+    <div class="ht-30"></div>
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 col-lg-4">
-                <div class="page-header-title text-center text-md-start">
-                    <h1>Blog Grid Right Sidebar</h1>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-8">
-                <nav class="page-header-breadcrumb text-center text-md-end">
-                    <ul class="breadcrumb">
-                        <li><a href="index.html">Home</a></li>
-                        <li class="active"><a href="index.html">Blog Grid Right Sidebar</a></li>
-                    </ul>
+        <div class="row">
+            <div class="colxl-12 col-lg-12 col-md-12">
+                <h1 class="ft-medium">Blogs</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#" class="text-light">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#" class="text-light">Blogs</a></li>
+                    </ol>
                 </nav>
             </div>
         </div>
     </div>
+    <div class="ht-30"></div>
 </div>
-<!-- End Page Header Area -->
-
-<!-- Start Page Content Wrapper -->
-<div class="page-content-wrap pt-90 pt-sm-60 pb-90 pb-sm-52 mb-xl-30">
-    <div class="blog-page-area-wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-9">
-                    <div class="blog-page-content-inner">
-                        <div class="row news-grid">
-
-                            @forelse ($blogs as  $blog)
-                            <div class="col-sm-6 col-lg-4">
-                                <!-- Start Single News Item -->
-                                <div class="news-item">
-                                    <figure class="news-item__thumb">
-                                        <a href="{{route('blog.details', encrypt($blog->id))}}"><img src="{{asset('/assets/img/news/post-01.jpg')}}" alt="Post"/></a>
-                                    </figure>
-
-                                    <div class="news-item__info">
-                                        <h2><a href="{{route('blog.details', encrypt($blog->id))}}">{{$blog->title}}</a></h2>
-                                        <div class="post-meta">
-                                            <a href="{{route('blog.details', encrypt($blog->id))}}" class="post-date"><i class="fa fa-clock-o"></i>
-                                                {{$blog->created_at->format('d/m/y')}}</a>
-                                        </div>
-                                        <p style="color:#fff">{!! substr($blog->contents, 0, 200) !!}
-                                            </p>
-                                        <a href="{{route('blog.details', encrypt($blog->id))}}" class="btn btn-brand">Read More</a>
-                                    </div>
-                                </div>
-                                <!-- End Single News Item -->
-                            </div>
-
-                            @empty
+			<section class="middle">
+				<div class="container">
+					
+					
+					
+					<div class="row">
+                        @forelse ($blogs as  $blog)
+						<div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+							<div class="_blog_wrap">
+								<div class="_blog_thumb mb-2">
+									<a href="{{route('blog.details', encrypt($blog->id))}}" class="d-block"><img src="{{asset('images/'.$blog->image)}}" class="img-fluid rounded" alt="" /></a>
+								</div>
+								<div class="_blog_caption">
+									<span class="text-muted">{{$blog->created_at->format('d/m/y')}}</span>
+									<h5 class="bl_title lh-1"><a href="{{route('blog.details', encrypt($blog->id))}}">{{$blog->title}}</a></h5>
+									<p>{!! substr($blog->contents, 0, 200) !!}</p>
+									<a href="{{route('blog.details', encrypt($blog->id))}}" class="text-dark fs-sm">Continue Reading..</a>
+								</div>
+							</div>
+						</div>
+                        @empty
                                 
                             @endforelse 
 
-                          
-
-                        </div>
-
-                        <div class="row">
-                            <div class="col-12">
-                                <!-- Start Pagination Wrap -->
-                                <div class="pagination-wrap mt-60 mt-md-40 mt-sm-40">
-                                    <ul class="pagination justify-content-center">
-                                        <li><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
-                                        <li><a href="#" class="current">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                                    </ul>
-                                </div>
-                                <!-- End Pagination Wrap -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3">
-                    <div class="sidebar-area mt-md-52 mt-sm-52">
-                        <aside class="sidebar-wrapper">
-                          
-                            <!-- End Single Sidebar -->
-
-                            <!-- Start Single Sidebar -->
-                            <div class="sidebar-item">
-                                <h3 class="sidebar-title">Popular Post</h3>
-                                <div class="sidebar-body">
-                                    <div class="recent-news">
-                                        @forelse($popular as $post)
-                                        <div class="recent-news-item">
-                                            <figure class="recent-news-item__thumb">
-                                                <a href="{{route('blog.details', encrypt($post->id))}}"><img src="{{asset('assets/img/news/post-01.jpg')}}"
-                                                                                 alt="Recent News"/></a>
-                                            </figure>
-
-                                            <div class="recent-news-item__info">
-                                                <h3><a href="{{route('blog.details', encrypt($post->id))}}">{{$post->title}}</a></h3>
-                                                <div class="news-meta">
-                                                    <span class="post-date"><i
-                                                            class="fa fa-clock-o"></i>{{$post->created_at->format('d/m/y')}}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        @empty 
-
-                                        @endforelse
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Sidebar -->
-
-                            <!-- Start Single Sidebar -->
-            
-                            <!-- End Single Sidebar -->
-                        </aside>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+						
+						
+						
+					</div>
+					
+					
+					
+				</div>
+			</section>
+			<!-- ======================= Blog Start ============================ -->
+			
+			<!-- ======================= Newsletter Start ============================ -->
+			<section class="space bg-cover" style="background:#03343b url(assets/img/landing-bg.png) no-repeat;">
+				<div class="container py-5">
+					
+					<div class="row justify-content-center">
+						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+							<div class="sec_title position-relative text-center mb-5">
+								<h6 class="text-light mb-0">Subscribr Now</h6>
+								<h2 class="ft-bold text-light">Get All New Job Notification</h2>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row align-items-center justify-content-center">
+						<div class="col-xl-7 col-lg-10 col-md-12 col-sm-12 col-12">
+							<form class="bg-white rounded p-1">
+								<div class="row no-gutters">
+									<div class="col-xl-9 col-lg-9 col-md-8 col-sm-8 col-8">
+										<div class="form-group mb-0 position-relative">
+											<input type="text" class="form-control lg left-ico" placeholder="Enter Your Email Address">
+											<i class="bnc-ico lni lni-envelope"></i>
+										</div>
+									</div>
+									<div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 col-4">
+										<div class="form-group mb-0 position-relative">
+											<button class="btn full-width custom-height-lg theme-bg text-light fs-md" type="button">Subscribe</button>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					
+				</div>
+			</section>
 
 @endsection
