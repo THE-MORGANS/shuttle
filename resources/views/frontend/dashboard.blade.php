@@ -122,19 +122,19 @@
                     </div>
                     <div class="position-relative row">
                         <div class="col-lg-4 col-md-4 col-4">
-                            <h3 class="ft-bold theme-cl mb-0">10k+</h3>
+                            <h3 class="ft-bold theme-cl mb-0">0</h3>
                             <p class="ft-medium">Active Jobs</p>
                         </div>
                         <div class="col-lg-4 col-md-4 col-4">
-                            <h3 class="ft-bold theme-cl mb-0">12k+</h3>
+                            <h3 class="ft-bold theme-cl mb-0">0</h3>
                             <p class="ft-medium">Resumes</p>
                         </div>
                         <div class="col-lg-4 col-md-4 col-4">
-                            <h3 class="ft-bold theme-cl mb-0">07k+</h3>
+                            <h3 class="ft-bold theme-cl mb-0">0</h3>
                             <p class="ft-medium">Employers</p>
                         </div>
                         <div class="col-lg-12 col-md-12 col-12 mt-3">
-                            <a href="javascript:void(0);" class="btn btn-md theme-bg-light rounded theme-cl hover-theme">See Details<i class="lni lni-arrow-right-circle ml-2"></i></a>
+                            {{-- <a href="javascript:void(0);" class="btn btn-md theme-bg-light rounded theme-cl hover-theme">See Details<i class="lni lni-arrow-right-circle ml-2"></i></a> --}}
                         </div>
                     </div>
                 </div>
@@ -171,10 +171,10 @@
             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                 <div class="blg_grid_box">
                     <div class="blg_grid_thumb">
-                        <a href="blog-detail.html"><img src="{{asset('images/'.$blog->image)}}" class="img-fluid" alt=""></a>
+                        <a href="{{route('blog.details', encrypt($blog->id))}}"><img src="{{asset('images/'.$blog->image)}}" class="img-fluid" alt=""></a>
                     </div>
                     <div class="blg_grid_caption">
-                        <div class="blg_title"><h4><a href="blog-detail.html">{{$blog->title}}</a></h4></div>
+                        <div class="blg_title"><h4><a href="{{route('blog.details', encrypt($blog->id))}}">{{$blog->title}}</a></h4></div>
                         <div class="blg_desc"><p>{!!substr($blog->contents,0,200)!!}</p></div>
                     </div>
                     <div class="crs_grid_foot">
