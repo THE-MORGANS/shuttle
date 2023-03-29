@@ -44,8 +44,8 @@
                     
                     <!-- About -->
                     <div class="abt-cdt d-block full-width mb-4">
-                        <h4 class="ft-medium mb-1 fs-md">ABOUT MIMATT </h4>
-                        <p>Mimatt Limited has been successful for more than 8 years, we put our customers at the centre of everything we do. You can count on Mimatt to help you with your consultancy and staffing plans for today and tomorrow.
+                        <h4 class="ft-medium mb-1 fs-md">ABOUT Shuttlerecruitment </h4>
+                        <p>Shuttlerecruitment Limited has been successful for more than 8 years, we put our customers at the centre of everything we do. You can count on Shuttlerecruitment to help you with your consultancy and staffing plans for today and tomorrow.
 
                             We have all the specialised recruitment services you need, whether you're looking for people to help you change your organisation or for leaders who can inspire business change. From permanent, temporary, and contract hiring to executive search and interim appointments, we have access to the best pool of talent networks and can help you find the right people for your organisation both your permanent and temporary roles across all organisations. .</p>
                     </div>
@@ -58,7 +58,7 @@
                     <!-- Hobbies -->
                     <div class="abt-cdt d-block full-width mb-4">
                         <h4 class="ft-medium mb-1 fs-md">WHY CHOOSE US</h4>
-                        <p>With Mimatt, expect to get</p>
+                        <p>With Shuttlerecruitment, expect to get</p>
                         <div class="position-relative row">
                             <div class="col-lg-12 col-md-12 col-12">
                                 <div class="mb-2 mr-4 ml-lg-0 mr-lg-4"> 

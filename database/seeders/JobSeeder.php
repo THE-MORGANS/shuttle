@@ -75,14 +75,14 @@ class JobSeeder extends Seeder
         [ 'title' => 'Accounts Officer', 'industries_id' => '3', 'location' => 'Lagos', 'deadline' => '15/2/2023', 'salary_range' => '6000000', 'job_details' => 'esponsibilities:
 
         Provide a coordinating role in the development of a three-year Corporate Strategy and Roadmap for the key programmatic areas including the monitoring and execution of the implementation plan
-        Support Directors with research, problem-solving, and the accurate and timely reporting of the Nigeria Financial Inclusion Programme activities according to applicable timeframes and formats
+        Support Directors with research, problem-solving, and the accurate and timely reporting of the United Kingdom Financial Inclusion Programme activities according to applicable timeframes and formats
         Manage program reporting process(es) including collation of various project status updates from project staff and technical assistance partners, and the provision of overall program status reporting
-        Act as an integral member of the team responsible for the centralized process for coordination of resources, planning, communication, documentation, travel, and logistics, and maintain a calendar of deadlines and deliverables for Nigerias financial inclusion program 
+        Act as an integral member of the team responsible for the centralized process for coordination of resources, planning, communication, documentation, travel, and logistics, and maintain a calendar of deadlines and deliverables for United Kingdoms financial inclusion program 
         Support external stakeholder management activities, the cadence of engagements, workshops, and meetings, and delivery of individual projects
         Execute set priorities, effect change, manage expectations through influence and in partnership with Directors, suggesting tactics and strategies to address any challenges, issues, and opportunities
         Develop project management tools and trackers as needed to ensure a systematic and clear overview of project activities, budget, and results framework is available to ensure effective project management.
-        Provide support to review and manage the execution of all contracts, memoranda of understanding, and agreements for the Nigeria financial inclusion program 
-        Identify and monitor all contractual obligations of all parties/stakeholders of the Nigeria financial inclusion program 
+        Provide support to review and manage the execution of all contracts, memoranda of understanding, and agreements for the United Kingdom financial inclusion program 
+        Identify and monitor all contractual obligations of all parties/stakeholders of the United Kingdom financial inclusion program 
         Documentation of technical assistance requirements, review and analysis of Requests for Information (RFIs), and Request for Proposals (RFPs) on the program
         Monitor and process approved relevant program expenses and invoices
         Ensure financial inclusion program staff and technical assistance partners adhere to RPA policies and procedures
@@ -97,7 +97,7 @@ class JobSeeder extends Seeder
         A Masters degree is preferred;
         3 - 5 years of related experience in the non-profit sector and/ or consulting disciplines
         Familiarity and demonstrated interest in financial inclusion concepts and theories
-        Knowledge or experience working with Nigerian Federal Government offices and the digital financial services landscape in Nigeria 
+        Knowledge or experience working with United Kingdomn Federal Government offices and the digital financial services landscape in United Kingdom 
         Proven ability to multi-task and balance the workload and deadlines for multiple projects
         Strong organizational and project management skills and a demonstrated attention to detail
         Clear and prompt communication skills, both oral and written

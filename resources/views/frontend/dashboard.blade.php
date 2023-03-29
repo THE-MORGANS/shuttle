@@ -1,7 +1,154 @@
 
 @extends('layouts.app')
 @section('contents')
-@include('frontend.minimal.slider')
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+            <div class="home-banner margin-bottom-0"
+                 style="background:#00ab46 url({{ asset('assets/img/banner-9.jpeg') }}) no-repeat;" data-overlay="2">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-11 col-lg-12 col-md-12 col-sm-12 col-12">
+
+                            <div class="banner_caption text-left mb-5 typed-out">
+                                <h1 class="banner_title ft-bold mb-1 uppercase"><span class="count"></span>Shuttle Recruitment Agency</h1>
+                                <p class="fs-md ft-medium">.. We pledge to deliver qualified, objective advise</p>
+                            </div>
+
+                            <div class="text-left align-items-center justify-content-center mt-5">
+                                <a href="" class="btn bg-white hover-theme ft-regular mr-1"><i
+                                            class="lni lni-user mr-1"></i>Seeking for a new job?</a>
+                                <a href=""
+                                   class="btn bg-dark hover-theme text-light ft-regular ml-1"><i
+                                            class="lni lni-briefcase mr-1"></i>Find Jobs</a>
+                          </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item ">
+            <div class="home-banner margin-bottom-0"
+                 style="background:#00ab46 url({{ asset('assets/img/banner-1.webp') }}) no-repeat;" data-overlay="2">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-xl-11 col-lg-12 col-md-12 col-sm-12 col-12">
+
+                            <div class="banner_caption text-right mb-5 typed-out">
+                                <h1 class="banner_title ft-bold mb-1 uppercase "><span class="count"></span> In need
+                                    of a new staff?</h1>
+                                <p class="fs-md ft-medium " >...Or seeking for a new job</p>
+                            </div>
+
+                            <div class="text-right align-items-center justify-content-center mt-5">
+                                <a href="" class="btn bg-white hover-theme ft-regular mr-1"><i
+                                            class="lni lni-user mr-1"></i>I'm looking for a Job</a>
+                                <a href=""
+                                   class="btn bg-dark hover-theme text-light ft-regular ml-1"><i
+                                            class="lni lni-briefcase mr-1"></i>I'm Hiring</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<!-- ======================= Home Banner ======================== -->
+
+
+<!-- ======================= Job seeks and employers Banner ======================== -->
+<section class="space py-0" style="background: #ff0000;">
+    <!-- ======================= for job seekers Start ============================ -->
+    <div class="text-white container-fluid">
+
+
+        <div class="row">
+            <div class="px-0 col-xl-6 col-lg-6 col-md-12 col-sm-12 jbs"
+                 style=" background: url({{ asset('assets/img/applicant.jpeg') }}); z-index: 1" data-overlay="1">
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                <div class="position-relative py-5 px-4">
+
+                    <h2 class="ft-bold mb-3 text-white text-center">FOR JOB SEEKERS</h2>
+                    <p class="mb-2" style="font-size: 18px !important;"> Our number one goal is to significantly
+                        reduce the number of unemployed graduates in United Kingdom. To achieve our primary objective,
+                        we dedicate a lot of time to training and re-training candidates to be employable and
+                        fitted for the right job. We are a one-stop shop for the basic recruitment needs of both employers and
+                        job seekers and have inculcated <span class="font-weight-bold">SKILLS ACQUISITION</span> as a fundamental aspect of GSRA to
+                        help prepare our candidates to be successful in their next job.
+                    </p>
+
+                    <div class="col-lg-12 col-md-12 col-12 mt-3 ml-0 pl-0">
+                        {{-- <a href="" class="btn gray ft-medium apply-btn fs-sm rounded">See
+                            Details<i class="lni lni-arrow-right-circle ml-2"></i></a> --}}
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <!-- ======================= for job seekers Start ============================ -->
+    <!-- ======================= for job Employers Start ============================ -->
+    <div class="text-white container-fluid">
+
+
+        <div class="row employer">
+
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+
+                    <div class="position-relative py-5 px-2">
+
+                        <h2 class="ft-bold mb-3 text-white text-center">FOR EMPLOYERS</h2>
+                        <p class="mb-2" style="font-size: 18px !important;"> Shuttle Recruitment Agency
+                            is a recruiting agency company. We dedicate a lot of time to training and re-training candidates to be employable and
+                            fitted for the right job. We hire qualified employees to their respective employers.
+
+                            At Shuttle Recruitment Agency, we are focused on making candidates
+                            <span class="font-weight-bold">highly productive at the workplace</span>. To do that, <span class="font-weight-bold">we undertake a lot of training
+                                on behalf of our clients and the candidates themselves</span> to ensure that they are equipped
+                            with the requisite knowledge and skills to perform their responsibilities effectively.
+                        </p>
+                        <div class="col-lg-12 col-md-12 col-12 mt-3 ml-0 pl-0">
+                            {{-- <a href=""
+                               class="btn gray ft-medium apply-btn fs-sm rounded">See Details<i
+                                        class="lni lni-arrow-right-circle ml-2"></i></a> --}}
+                        </div>
+                    </div>
+            </div>
+            <div class="px-0 col-xl-6 col-lg-6 col-md-12 col-sm-12 jbs"
+                 style=" background: ; z-index: 1" data-overlay="1">
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <!-- ======================= for job Employers Start ============================ -->
+</section>
+
 <!-- ======================= Job List ======================== -->
 <section class="middle">
     <div class="container">
@@ -243,5 +390,51 @@
 </section>
 <!-- ======================= Newsletter Start ============================ -->
 
+
+@endsection
+
+@section('styles')
+
+    <style>
+
+        .slick-next:before, .slick-prev:before {
+            color: #ff0000 ;
+        }
+
+        .jbs {
+            display: flex;
+            width: 100%;
+            background-size: cover !important;
+            background-position: center !important;
+        }
+
+        @media only screen and (max-width: 991px) {
+
+            .jbs {
+                height: 220px;
+                /*width: 100%;*/
+            }
+
+            .employer {
+
+
+                display: flex;
+                flex-flow: column-reverse;
+
+            }
+        }
+
+        .typed-out{
+            overflow: hidden;
+            /*border-right: .15em solid #0001a2;*/
+            white-space: nowrap;
+            animation: typing 5.0s  alternate;
+            width: 100%;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+    </style>
 
 @endsection
