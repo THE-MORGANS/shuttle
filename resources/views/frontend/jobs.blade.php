@@ -115,7 +115,7 @@
                                             <span class="text-muted medium"><i class="lni lni-map-marker mr-1"></i>{{$job->location}}</span>
 
                                             <span class="muted medium ml-2 theme-cl"><i class="lni lni-briefcase mr-1"></i>{{$job->job_type}}</span>
-                                            <span class="muted medium ml-2 theme-cl"><i class="lni lni-briefcase mr-1"></i>{{$job->created_at->diffForHumans()}}</span>  
+                                            {{-- <span class="muted medium ml-2 theme-cl"><i class="lni lni-briefcase mr-1"></i>{{$job->created_at->diffForHumans()}}</span>   --}}
                                         </div>
                                     </div>
                                 </div>
