@@ -62,16 +62,27 @@
                                                   </div>
                                             </div> 
                                             <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <input type="text" name="salary_range" value="{{$job->salary_range}}" class="form-control @error('salary_range') is-invalid @enderror" id="exampleInputEmail1"
-                                                    aria-describedby="emailHelp" placeholder="Enter Salary Range">
-                                                   <small id="emailHelp" class="form-text text-muted">Salary Range
-                                                          </small>
-                                                          @error('salary_range')
-                                                          <span class="invalid-feedback"> <small> *</small> </span>
-                                                          @enderror
-                                                  </div>
-                                            </div> 
+                                              <div class="form-group">
+                                                  <input type="text" name="min_salary" value="{{$job->min_salary}}" class="form-control @error('min_salary') is-invalid @enderror" id="exampleInputEmail1"
+                                                  aria-describedby="emailHelp" placeholder="Enter Minimum Salary Range">
+                                                 <small id="emailHelp" class="form-text text-muted">Salary Range
+                                                        </small>
+                                                        @error('min_salary')
+                                                        <span class="invalid-feedback"> <small> *</small> </span>
+                                                        @enderror
+                                                </div>
+                                          </div> 
+                                          <div class="col-md-6">
+                                              <div class="form-group">
+                                                  <input type="text" name="max_salary" value="{{$job->max_salary}}" class="form-control @error('salary_range') is-invalid @enderror" id="exampleInputEmail1"
+                                                  aria-describedby="emailHelp" placeholder="Enter Maximum Salary Range">
+                                                 <small id="emailHelp" class="form-text text-muted">Salary Range
+                                                        </small>
+                                                        @error('max_salary')
+                                                        <span class="invalid-feedback"> <small> *</small> </span>
+                                                        @enderror
+                                                </div>
+                                          </div> 
 
                                             <div class="col-md-6">
                                                 <div class="form-group">
