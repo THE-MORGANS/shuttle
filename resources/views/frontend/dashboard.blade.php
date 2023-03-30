@@ -180,7 +180,7 @@
                         <div class="jbl_location"><i class="lni lni-map-marker mr-1"></i><span>{{$job->location}}</span></div>
                     </div>
                     <div class="job_grid_footer pb-4 px-3 d-flex align-items-center justify-content-between">
-                        <div class="df-1 text-muted"><i class="lni lni-wallet mr-1"></i>${{$job->salary_range}}.</div>
+                        <div class="df-1 text-muted"><i class="lni lni-wallet mr-1"></i>${{$job->min_salary}} - ${{$job->max_salary}}</div>
                         <div class="df-1 text-muted"><i class="lni lni-timer mr-1"></i>{{$job->created_at->diffForHumans()}}</div>
                     </div>
                 </div>
