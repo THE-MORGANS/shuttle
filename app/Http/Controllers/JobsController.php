@@ -36,11 +36,12 @@ class JobsController extends Controller
             'industry_id' => 'required',
             'location' => 'required',
             'daterangepicker' => 'required',
-            'min_range' => 'required',
-            'max_range' => 'required',
+            'min_salary' => 'required',
+            'max_salary' => 'required',
             'job_type' => 'required',
             'image' => 'required',
         ]);
+
         $data = [
             'title' => $request->title,
             'job_details' => $request->contents,
