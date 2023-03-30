@@ -40,7 +40,7 @@
 										<div class="jbd-01-caption pl-3">
 											<div class="tbd-title"><h4 class="mb-0 ft-medium fs-md">{{$job->title}}</h4></div>
 											<div class="jbl_location mb-3"><span><i class="lni lni-map-marker mr-1"></i>{{$job->location}}</span><span class="medium ft-medium text-warning ml-3">{{$job->job_type}}</span></div>
-                                            <div class="jbl_location mb-3"><span><i class="lni mr-1"></i>Salary Range: ${{$job->salary_range }}</span><span class="medium ft-medium ml-3">
+                                            <div class="jbl_location mb-3"><span><i class="lni mr-1"></i>Salary Range: ${{number_format($job->min_salary,2)}} - ${{number_format($job->max_salary,2)}}  </span><span class="medium ft-medium ml-3">
 												{{-- Posted: {{$job->created_at->format('d/m/y')}}</span></div> --}}
 										</div>
 									</div>
