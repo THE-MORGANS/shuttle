@@ -7,7 +7,9 @@
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                     <div class="footer_widget">
                         <img src="{{asset('assets/'.$settings->logo)}}" class="img-footer small mb-2" alt="" />
-                        
+                        <div class="address mt-2">
+                            {{substr($settings->about,0,97)}}	
+                         </div>
                         <div class="address mt-2">
                            {{$settings->address}}	
                         </div>
