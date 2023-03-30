@@ -29,7 +29,7 @@
                                         <div class="form-group">
                                             <select type="text" name="industry_id"  value="{{old('industry_id')}}" class="form-control @error('industry_id') is-invalid @enderror" id="exampleInputEmail1"
                                             aria-describedby="emailHelp" placeholder="Select Industries">
-                                            <option> Select Job Industry </option>
+                                            <option disabled> Select Job Industry </option>
                                             @forelse ($industries as $ind)
                                             <option value="{{$ind->id}}"> {{$ind->name}} </option>
                                             @empty
