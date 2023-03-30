@@ -115,48 +115,20 @@
                                             <span class="text-muted medium"><i class="lni lni-map-marker mr-1"></i>{{$job->location}}</span>
 
                                             <span class="muted medium ml-2 theme-cl"><i class="lni lni-briefcase mr-1"></i>{{$job->job_type}}</span>
-                                            <span class="muted medium ml-2 theme-cl"><i class="lni lni-briefcase mr-1"></i>{{$job->created_at->diffForHumans()}}</span>  
+                                            {{-- <span class="muted medium ml-2 theme-cl"><i class="lni lni-briefcase mr-1"></i>{{$job->created_at->diffForHumans()}}</span>   --}}
                                         </div>
                                     </div>
                                 </div>
-                                <div class="text-center mlb-last"><a href="{{route('job-details', $job->id.'-'.$job->title)}}" class="btn gray ft-medium apply-btn fs-sm rounded">Apply Job<i class="lni lni-arrow-right-circle ml-1"></i></a></div>
+                                <div class="text-center mlb-last"><a href="{{route('job-details', $job->id.'-'.$job->title)}}" class="btn gray ft-medium apply-btn fs-sm rounded">Apply Job<i class="lni lni-arrow-right-circle ml-1"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div> 
                     @empty
                         
-                    @endforelse
-                    
-                   
-                    
-                    
-                    
+                    @endforelse 
                 </div>
-                <!-- row -->
-                
-                {{-- <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                        <ul class="pagination">
-                            <li class="page-item">
-                              <a class="page-link" href="#" aria-label="Previous">
-                                <span class="fas fa-arrow-circle-right"></span>
-                                <span class="sr-only">Previous</span>
-                              </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item active"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#">18</a></li>
-                            <li class="page-item">
-                              <a class="page-link" href="#" aria-label="Next">
-                                <span class="fas fa-arrow-circle-right"></span>
-                                <span class="sr-only">Next</span>
-                              </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div> --}}
+       
                 
             </div>
             

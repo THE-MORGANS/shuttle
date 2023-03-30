@@ -96,6 +96,7 @@ class JobsController extends Controller
             'max_salary' => $request->max_salary,
             'min_salary' => $request->min_salary,
             'job_type' => $request->job_type,
+            'status' => 1
         ];
         if($request->image){
             $image = $request->file('image');
