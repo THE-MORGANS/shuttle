@@ -169,14 +169,15 @@
             @forelse ($pageJobs as $job )
             <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                 <div class="job_grid border rounded ">
-                    <div class="position-absolute ab-left"><button type="button" class="p-3 border circle d-flex align-items-center justify-content-center bg-white text-gray"><i class="lni lni-heart-filled position-absolute snackbar-wishlist"></i></button></div>
+                    <div class="position-absolute ab-left"><button type="button" class="p-3 border circle d-flex align-items-center justify-content-center bg-white text-gray">
+                        <i class="lni lni-heart-filled position-absolute snackbar-wishlist"></i></button></div>
                     <div class="position-absolute ab-right"><span class="medium theme-cl theme-bg-light px-2 py-1 rounded">{{$job->job_type}}</span></div>
                     <div class="job_grid_thumb mb-3 pt-5 px-3">
-                        <a href="job-detail.html" class="d-block text-center m-auto"><img src="assets/img/c-1.png" class="img-fluid" width="70" alt="" /></a>
+                        <a href="{{route('job-details', $job->id.'-'.$job->title)}}" class="d-block text-center m-auto">
+                            <img src="assets/img/c-1.png" class="img-fluid" width="70" alt="" /></a>
                     </div>
                     <div class="job_grid_caption text-center pb-5 px-3">
-                        <h6 class="mb-0 lh-1 ft-medium medium"><a href="employer-detail.html" class="text-muted medium">{{$job->company}}</a></h6>
-                        <h4 class="mb-0 ft-medium medium"><a href="job-detail.html" class="text-dark fs-md">{{$job->title}}</a></h4>
+                        <h6 class="mb-0 lh-1 ft-medium medium"><a href="{{route('job-details', $job->id.'-'.$job->title)}}" class="text-muted medium">{{$job->company}}</a></h6>
                         <div class="jbl_location"><i class="lni lni-map-marker mr-1"></i><span>{{$job->location}}</span></div>
                     </div>
                     <div class="job_grid_footer pb-4 px-3 d-flex align-items-center justify-content-between">
