@@ -48,8 +48,8 @@ class JobsController extends Controller
             'industries_id' => $request->industry_id,
             'location' => $request->location,
             'deadline' => $request->daterangepicker,
-            'max_salary' => $request->max_range,
-            'min_salary' => $request->min_range,
+            'max_salary' => $request->max_salary,
+            'min_salary' => $request->min_salary,
             'job_type' => $request->job_type,
         ];
       // try{ 
@@ -92,8 +92,8 @@ class JobsController extends Controller
             'industries_id' => $request->industry_id,
             'location' => $request->location,
             'deadline' => $request->daterangepicker,  
-            'max_salary' => $request->max_range,
-            'min_salary' => $request->min_range,
+            'max_salary' => $request->max_salary,
+            'min_salary' => $request->min_salary,
             'job_type' => $request->job_type,
         ];
         if($request->image){
