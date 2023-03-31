@@ -147,7 +147,7 @@ class SettingsController extends Controller
         $testim = Setting::first();
         $testim->fill($data)->save();
         \Session::flash('alert', 'success');
-        \Session::flash('message', 'Testimonial updated Successfully');
+        \Session::flash('message', 'Settings updated Successfully');
         return back();
     }
 

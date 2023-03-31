@@ -36,8 +36,6 @@
                             <li><a href="{{route('pages', encrypt($menu->id))}}">{{$menu->name}}</a></li>
                             @empty
                             @endforelse
-                           
-                            
                         </ul>
                     </div>
                 </div>
@@ -76,7 +74,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12 col-md-12 text-center">
-                    <p class="mb-0">© 2022 {{$settings->site_copyright}}</a>.</p>
+                    <p class="mb-0">© 2022 {{$settings->site_copyright}}</a>  <span style="float:right"> Designed - <a target="_blank" href="https://tynesideinnovation.com"> Tyneside Innovation </a></p></span>
                 </div>
             </div>
         </div>
